@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #08080c;
+  --color-surface: #14141a;
+  --color-surface-2: #1c1c24;
+  --color-fg: #f2efe6;
+  --color-muted: #8e8b96;
+  --color-subtle: #6b6874;
+  --color-accent: #c5c9d1;
+  --color-accent-fg: #08080c;
+  --color-border: rgb(242 239 230 / 12%);
+  --color-swatch-prism: #5ee0c8;
+  --color-swatch-ember: #e07a45;
+  --color-swatch-aurora: #5ec8a0;
+  --color-swatch-ink: #d9c9a0;
+  --color-swatch-ocean: #4a8fbf;
+  --color-swatch-glass: #c97a6a;
+
+  --font-sans: "DM Sans", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", "Noto Serif SC", ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --tracking-display: -0.03em;
+
+  --shadow-border: 0 0 0 1px rgb(255 255 255 / 8%);
+  --shadow-border-hover: 0 0 0 1px rgb(255 255 255 / 14%);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+  --motion-slow: 400ms;
+  --motion-stagger: 40ms;
+  --motion-y-medium: 12px;
+  --motion-blur-sm: 2px;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    overflow: hidden;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    overscroll-behavior: none;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+.kaleido-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: none;
+}
+
+.hud-shell {
+  padding: max(1rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right))
+    max(1rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
+}
+
+.vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 42%, var(--color-bg) 100%);
+  opacity: 0.42;
+}
+
+.stagger-item {
+  animation: fade-up var(--motion-slow) var(--ease-smooth-out) both;
+}
+
+.stagger-item:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.stagger-item:nth-child(2) {
+  animation-delay: var(--motion-fast);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-y-medium));
+    filter: blur(var(--motion-blur-sm));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stagger-item {
+    animation: none;
+  }
+
+  button,
+  [role="radio"],
+  .kaleido-canvas {
+    transition: none;
+  }
+}

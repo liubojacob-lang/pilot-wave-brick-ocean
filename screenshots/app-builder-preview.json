@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "万花筒",
+      "hasCanvas": true,
+      "bodyTextLen": 87,
+      "bodyTextHash": "344bae44740dfc9505a04099629bf50ba93100035fa2f68278c83295a274d3dc",
+      "bodyTextPrefix": "万花筒 移动指针，镜像成对称的光 移动或点按画面作画 · 空格冻结 · R 随机 · E 导出 光谱 焰色 极光 墨韵 深海 琉",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "万花筒",
+      "hasCanvas": true,
+      "bodyTextLen": 87,
+      "bodyTextHash": "344bae44740dfc9505a04099629bf50ba93100035fa2f68278c83295a274d3dc",
+      "bodyTextPrefix": "万花筒 移动指针，镜像成对称的光 移动或点按画面作画 · 空格冻结 · R 随机 · E 导出 光谱 焰色 极光 墨韵 深海 琉",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
